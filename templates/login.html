@@ -1,0 +1,25 @@
+{% extends "/base/base.html" %}
+{% block title %}Home~{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+
+    <div class="login-form center-block">
+        <form class="form-signin" role="form" method="post" action="">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <input type="text" class="form-control" name="username" placeholder="Email address" required autofocus>
+            <input type="password" class="form-control" name="password" placeholder="Password" required>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </div>
+
+</div> <!-- /container -->
+{% endblock %}

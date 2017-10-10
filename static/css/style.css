@@ -1,0 +1,14 @@
+/*body {*/
+    /*background: #000;*/
+    /*color: #fff;*/
+    /*font-family: Courier New;*/
+/*}*/
+.login-form{
+    max-width: 300px;
+}
+.addbook-form{
+    max-width: 600px;
+}
+#footer{
+    text-align: center;
+}

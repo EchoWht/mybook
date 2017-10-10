@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    {% block head %}
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    <script type=text/javascript src="{{url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type=text/javascript>
+      $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+
+    {% endblock %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+    <div id="footer">
+        {% block footer %}
+        &copy; Copyright 2016 by <a href="http://blskye.com/">Blskey</a>.
+        {% endblock %}
+    </div>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

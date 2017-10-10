@@ -1,0 +1,21 @@
+{% extends "/base/base.html" %}
+{% block title %}Home~{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{% include '/libs/nav.html' %}
+
+<div class="container">
+    <div class="page-header">
+            <h3>{{mybook.book_name}}</h3>
+    </div>
+    <div class="page-body">
+        <div class="row">
+             <div class="col-md-4"> <img class="center-block" src="{{mybook.jdbook_pic_url}}" alt=""></div>
+            <div class="col-md-8"></div>
+        </div>
+    </div>
+</div> <!-- /container -->
+
+{% endblock %}

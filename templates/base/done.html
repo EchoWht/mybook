@@ -1,0 +1,21 @@
+{% extends "/base/base.html" %}
+{% block title %}Home~{% endblock %}
+{% block head %}
+    {{ super() }}
+<link rel="stylesheet" href="/static/css/loading.css">
+{% endblock %}
+{% block content %}
+{% include '/libs/nav.html' %}
+    <div class="starter-template text-center">
+        <h1>{{mession_done}}</h1>
+        <div class="cp-spinner cp-pinwheel center-block"></div>
+        <p class="lead">
+            正在跳转....
+        </p>
+    </div>
+<script>
+    setTimeout(function () {
+        location.href="{{url_for('booklist')}}"
+    }, 1000);
+</script>
+{% endblock %}

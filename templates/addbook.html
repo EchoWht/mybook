@@ -1,0 +1,77 @@
+{% extends "/base/base.html" %}
+{% block title %}Home~{% endblock %}
+{% block head %}
+    {{ super() }}
+
+
+{% endblock %}
+{% block content %}
+{% include '/libs/nav.html' %}
+    <div class="container">
+    <div class="addbook-form center-block">
+        <form class="form-horizontal" role="form" method="post" action="">
+            <h2 class="form-signin-heading">填写图书信息</h2>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">图书名称</label>
+                <div class="col-sm-10">
+                    <input id="book_name" type="text" class="form-control" name="book_name" placeholder="" required autofocus>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">图书作者</label>
+                <div class="col-sm-10">
+
+                     <input id="author" type="text" class="form-control" name="book_author" placeholder="图书名作者" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">购买时间</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" name="book_buy_date" placeholder="购买时间" required >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">图书价格</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="book_price" placeholder="图书价格" required >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">读书进度</label>
+                <div class="col-sm-10">
+                   <input type="range"  min="0" max="100" class="form-control" name="book_reading_progress" placeholder=""  >
+                </div>
+            </div>
+
+
+            <!--<input type="text" class="form-control" name="book_translator" placeholder="图书名译者" required >-->
+
+
+
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">确认</button>
+        </form>
+    </div>
+
+</div> <!-- /container -->
+<script type=text/javascript>
+  $(function() {
+    $('input#book_name').bind('blur', function() {
+      $.getJSON($SCRIPT_ROOT + '/_get_jdbook_info', {
+        keywords: $('input[name="book_name"]').val()
+      }, function(data) {
+          var author=''
+          if(data.result.book_author){
+              for (var i=0;i<data.result.book_author.length;i++){
+              author+=' '+data.result.book_author[i]
+              console.log(data.result.book_author[i])
+            }
+          }
+        $('input[name="book_author"]').val(author);
+          $('input[name="book_price"]').val(data.result.book_price);
+      });
+      return false;
+    });
+  });
+</script>
+{% endblock %}
