@@ -1,7 +1,6 @@
-## Python Flask 
-
-
-参考文档
+## Python  Flask  SQLAlchemy  Beautiful Soup
+利用爬虫获取京东的图书 图片信息、商品价格、作者等信息
+### 参考文档
 flask中文文档
 http://docs.jinkan.org/docs/flask/
 
